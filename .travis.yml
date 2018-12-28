@@ -1,0 +1,14 @@
+language: java
+sudo: false
+jdk:
+  - openjdk11
+
+matrix:
+  include:
+    - jdk: openjdk11
+      before_install:
+        - rm "${JAVA_HOME}/lib/security/cacerts"
+        - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>sievent.monitoring</groupId>
+    <artifactId>core</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Tools -->
+        <guava.version>27.0.1-jre</guava.version>
+        <rxjava.version>2.2.4</rxjava.version>
+
+        <!-- Test -->
+        <junit.version>5.3.2</junit.version>
+    </properties>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Tools -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+            <scope>${junit.version}</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>java8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.release>8</maven.compiler.release>
+                <jdk.vendor>oracle</jdk.vendor>
+                <jdk.version>8</jdk.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>java9</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.9</maven.compiler.source>
+                <maven.compiler.target>1.9</maven.compiler.target>
+                <maven.compiler.release>9</maven.compiler.release>
+                <jdk.vendor>oracle</jdk.vendor>
+                <jdk.version>9</jdk.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>java10</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.10</maven.compiler.source>
+                <maven.compiler.target>10</maven.compiler.target>
+                <maven.compiler.release>10</maven.compiler.release>
+                <jdk.vendor>oracle</jdk.vendor>
+                <jdk.version>10</jdk.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>java11</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <maven.compiler.source>1.11</maven.compiler.source>
+                <maven.compiler.target>11</maven.compiler.target>
+                <maven.compiler.release>11</maven.compiler.release>
+                <jdk.vendor>openjdk</jdk.vendor>
+                <jdk.version>11</jdk.version>
+            </properties>
+        </profile>
+    </profiles>
+</project>
