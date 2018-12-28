@@ -3,6 +3,10 @@ sudo: false
 jdk:
   - openjdk11
 
+env:
+  global:
+    - CODECOV_TOKEN=:a4b5cf55-b019-4d4b-82b6-3f06443883f0
+    -
 matrix:
   include:
     - jdk: openjdk11
