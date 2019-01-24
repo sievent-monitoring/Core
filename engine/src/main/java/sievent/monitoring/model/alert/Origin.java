@@ -1,6 +1,7 @@
 package sievent.monitoring.model.alert;
 
 public enum Origin {
+    Unknown(-1),
     Alarm(0),
     Sla(1),
     Logs(2),
@@ -16,5 +17,13 @@ public enum Origin {
 
     public int getValue() {
         return value;
+    }
+
+    public static Origin valueOf(int value) {
+        for (Origin origin : Origin.values()) {
+            if (origin.getValue() == value)
+                return origin;
+        }
+        return Origin.Unknown;
     }
 }

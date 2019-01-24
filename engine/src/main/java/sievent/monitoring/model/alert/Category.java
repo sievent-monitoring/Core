@@ -1,7 +1,7 @@
 package sievent.monitoring.model.alert;
 
 public enum Category {
-
+    Undefined(0),
     Infrastructure(100),
     Applicative(200),
     Business(300);
@@ -15,4 +15,13 @@ public enum Category {
     public int getValue() {
         return value;
     }
+
+    public static Category valueOf(int value) {
+        for (Category category : Category.values()) {
+            if (category.getValue() == value)
+                return category;
+        }
+        return Category.Undefined;
+    }
+
 }

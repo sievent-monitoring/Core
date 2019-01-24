@@ -15,12 +15,11 @@ public class AlertBuilder {
     private String application;
     private String userMessage;
     private String technicalMessage;
-    private int destination;
     private long rightMask;
     private Severity severity;
     private Category category;
     private SubCategory subCategory;
-    private String origin;
+    private Origin origin;
     private Status status;
     private int version;
     private String asset;
@@ -44,7 +43,6 @@ public class AlertBuilder {
             this.application = alert.getApplication();
             this.userMessage = alert.getUserMessage();
             this.technicalMessage = alert.getTechnicalMessage();
-            this.destination = alert.getDestination();
             this.rightMask = alert.getRightMask();
             this.severity = alert.getSeverity();
             this.category = alert.getCategory();
@@ -59,7 +57,7 @@ public class AlertBuilder {
 
     public Alert build() {
         return new Alert(this.id, this.timestamp, this.application, this.userMessage, this.technicalMessage,
-                this.destination, this.rightMask, this.severity, this.category, this.subCategory
+                this.rightMask, this.severity, this.category, this.subCategory
                 , this.origin, this.status, this.version, this.asset, this.realm, this.tags);
     }
 
@@ -106,11 +104,6 @@ public class AlertBuilder {
         return this;
     }
 
-    public AlertBuilder destination(int destination) {
-        this.destination = destination;
-        return this;
-    }
-
     public AlertBuilder rightMask(long rightMask) {
         this.rightMask = rightMask;
         return this;
@@ -131,7 +124,7 @@ public class AlertBuilder {
         return this;
     }
 
-    public AlertBuilder origin(String origin) {
+    public AlertBuilder origin(Origin origin) {
         this.origin = origin;
         return this;
     }

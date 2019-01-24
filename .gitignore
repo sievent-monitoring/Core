@@ -1,0 +1,10 @@
+
+\.idea/
+
+engine/target/
+
+store/target/
+
+*.iml
+
+\.mvn/
