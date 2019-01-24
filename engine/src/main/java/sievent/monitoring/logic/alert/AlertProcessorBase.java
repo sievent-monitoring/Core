@@ -5,6 +5,9 @@ import sievent.monitoring.model.alert.Alert;
 
 public abstract class AlertProcessorBase {
 
+    protected AlertProcessorBase() {
+    }
+
     @Subscribe
     public void process(Alert alert) {
         if (alert != null) {

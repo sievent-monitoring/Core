@@ -12,12 +12,11 @@ public class Alert {
     private final String application;
     private final String userMessage;
     private final String technicalMessage;
-    private final int destination;
     private final long rightMask;
     private final Severity severity;
     private final Category category;
     private final SubCategory subCategory;
-    private final String origin;
+    private final Origin origin;
     private final Status status;
     private final int version;
     private final String asset;
@@ -29,12 +28,11 @@ public class Alert {
             String application,
             String userMessage,
             String technicalMessage,
-            int destination,
             long rightMask,
             Severity severity,
             Category category,
             SubCategory subCategory,
-            String origin,
+            Origin origin,
             Status status,
             int version,
             String asset,
@@ -46,7 +44,6 @@ public class Alert {
         this.application = application;
         this.userMessage = userMessage;
         this.technicalMessage = technicalMessage;
-        this.destination = destination;
         this.rightMask = rightMask;
         this.severity = severity;
         this.category = category;
@@ -82,10 +79,6 @@ public class Alert {
         return technicalMessage;
     }
 
-    public int getDestination() {
-        return destination;
-    }
-
     public long getRightMask() {
         return rightMask;
     }
@@ -102,7 +95,7 @@ public class Alert {
         return subCategory;
     }
 
-    public String getOrigin() {
+    public Origin getOrigin() {
         return origin;
     }
 

@@ -1,7 +1,7 @@
 package sievent.monitoring.model.alert;
 
 public enum SubCategory {
-
+    Undefined(0),
     Cpu(100),
     Ram(101),
     Disk(102),
@@ -21,5 +21,14 @@ public enum SubCategory {
 
     public int getValue() {
         return value;
+    }
+
+
+    public static SubCategory valueOf(int value) {
+        for (SubCategory subCategory : SubCategory.values()) {
+            if (subCategory.getValue() == value)
+                return subCategory;
+        }
+        return SubCategory.Undefined;
     }
 }
