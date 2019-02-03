@@ -171,7 +171,7 @@
         <profile>
             <id>java11</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <maven.compiler.source>1.11</maven.compiler.source>
