@@ -84,6 +84,11 @@ public class AlertBuilder {
         return this;
     }
 
+    public AlertBuilder unTagAll() {
+        this.tags.clear();
+        return this;
+    }
+
     public AlertBuilder timestamp(long timestamp) {
         this.timestamp = timestamp;
         return this;

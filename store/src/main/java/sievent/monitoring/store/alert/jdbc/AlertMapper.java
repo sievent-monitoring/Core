@@ -7,6 +7,7 @@ import sievent.monitoring.store.model.tables.records.AlertsRecord;
 import java.util.UUID;
 
 public class AlertMapper implements RecordMapper<AlertsRecord, Alert> {
+
     @Override
     public Alert map(AlertsRecord record) {
         Alert alert = new AlertBuilder()
@@ -18,8 +19,8 @@ public class AlertMapper implements RecordMapper<AlertsRecord, Alert> {
                 .rightMask(record.getRightmask())
                 .severity(Severity.valueOf(record.getSeverity()))
                 .category(Category.valueOf(record.getCategory()))
-                .subCategory(SubCategory.valueOf(record.getSubcategory()))
-                .origin(Origin.valueOf(record.getOrigin()))
+                .subCategory((record.getSubcategory() != null) ? SubCategory.valueOf(record.getSubcategory()):null)
+                .origin((record.getOrigin() != null) ? Origin.valueOf(record.getOrigin()):null)
                 .status(Status.valueOf(record.getStatus()))
                 .version(record.getVersion())
                 .asset(record.getAsset())

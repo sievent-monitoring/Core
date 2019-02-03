@@ -114,4 +114,12 @@ public class Alert {
     public String getRealm() {
         return realm;
     }
+
+    public AlertBuilder builder() {
+        return new AlertBuilder(this);
+    }
+
+    public static AlertBuilder builder(Alert alert) {
+        return alert.builder();
+    }
 }

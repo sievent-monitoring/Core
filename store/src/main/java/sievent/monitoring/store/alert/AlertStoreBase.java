@@ -32,7 +32,7 @@ public abstract class AlertStoreBase implements IAlertStore {
         return doCreate(alert);
     }
 
-    protected abstract StoreResult doCreate(Alert alert);
+    protected abstract StoreResult doCreate(final Alert alert);
 
     @Override
     public StoreResult update(Alert alert) throws StoreException {
@@ -42,7 +42,7 @@ public abstract class AlertStoreBase implements IAlertStore {
         return doUpdate(alert);
     }
 
-    protected abstract StoreResult doUpdate(Alert alert);
+    protected abstract StoreResult doUpdate(final Alert alert);
 
     @Override
     public StoreResult delete(UUID alertId) throws StoreException {
@@ -52,7 +52,7 @@ public abstract class AlertStoreBase implements IAlertStore {
         return doDelete(alertId);
     }
 
-    protected abstract StoreResult doDelete(UUID alertId);
+    protected abstract StoreResult doDelete(final UUID alertId);
 
     @Override
     public Alert read(UUID alertId) throws StoreException {
@@ -62,7 +62,7 @@ public abstract class AlertStoreBase implements IAlertStore {
         return doRead(alertId);
     }
 
-    protected abstract Alert doRead(UUID alertId);
+    protected abstract Alert doRead(final UUID alertId);
 
     @Override
     public Map<UUID, StoreResult> createMultiple(List<Alert> alerts) throws StoreException {
@@ -81,7 +81,7 @@ public abstract class AlertStoreBase implements IAlertStore {
         return results;
     }
 
-    protected abstract void doCreateMultiple(List<Alert> alerts, Map<UUID, StoreResult> results);
+    protected abstract void doCreateMultiple(List<Alert> alerts, final Map<UUID, StoreResult> results);
 
     @Override
     public Map<UUID, StoreResult> updateMultiple(List<Alert> alerts) throws StoreException {
@@ -100,7 +100,7 @@ public abstract class AlertStoreBase implements IAlertStore {
         return results;
     }
 
-    protected abstract void doUpdateMultiple(List<Alert> alerts, Map<UUID, StoreResult> results);
+    protected abstract void doUpdateMultiple(List<Alert> alerts, final Map<UUID, StoreResult> results);
 
     @Override
     public Map<UUID, StoreResult> deleteMultiple(List<UUID> alertIds) throws StoreException {
@@ -155,12 +155,12 @@ public abstract class AlertStoreBase implements IAlertStore {
     }
 
     private StoreResult buildEmptyResult(String messageKey) {
-        return new StoreResult(null, false, getMessage(messageKey));
+        return new StoreResult(AlertStoreBase.NULL_ALERT_ID, false, 0, getMessage(messageKey));
     }
 
     private Map<UUID, StoreResult> buildEmptyResultMap(String messageKey) {
         Map<UUID, StoreResult> results = Maps.newHashMap();
-        results.put(AlertStoreBase.NULL_ALERT_ID, new StoreResult(AlertStoreBase.NULL_ALERT_ID, false, getMessage(messageKey)));
+        results.put(AlertStoreBase.NULL_ALERT_ID, buildEmptyResult(messageKey));
         return results;
     }
 
