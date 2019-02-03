@@ -15,6 +15,7 @@
         <jooq.version>3.11.8</jooq.version>
         <h2.version>1.4.196</h2.version>
         <flyway.version>5.2.4</flyway.version>
+        <javax.version>5.2.4</javax.version>
     </properties>
 
     <build>
@@ -107,7 +108,11 @@
             <version>${flyway.version}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.2</version>
+        </dependency>
 
 
     </dependencies>
